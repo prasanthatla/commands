@@ -1,3 +1,7 @@
 python -m rasa_core_sdk.endpoint --actions actions
 python -m rasa_nlu.train --config nlu_config.yml --data ./data/data.md --fixed_model_name expensebot
 python -m rasa_core.train interactive -o models/dialogue -d domain.yml -c policy.yml  -s data/stories.md --nlu models/default/expensebot --endpoints endpoints.yml --credentials credentials.yml
+python -m rasa_nlu.train -c nlu_config.yml --data data/data.md -o models --fixed_model_name expensebot
+python -m rasa_core.train interactive -o models/dialogue -d domain.yml -s data/stories.md --nlu models/default/expensebot --endpoints endpoints.yml -c policy.yml
+python -m rasa_core.train interactive -o models/dialogue -d domain.yml -s data/stories.md --nlu models/default/expensebot --endpoints endpoints.yml -c policy.yml
+python -m rasa_core_sdk.endpoint --actions action
